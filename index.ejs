@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <title>
+    </title>
+    <meta charset="UTF-8">
+    <style>
+        /* Vue未初始化之前隐藏页面 */
+[v-cloak] {
+    display: none!important;
+}
+
+.text-gray {
+    color: #aaa;
+}
+
+html {
+    font-family: "PingFang SC";
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+html,
+body,
+header,
+section,
+footer,
+div,
+ul,
+ol,
+li,
+img,
+a,
+span,
+em,
+del,
+legend,
+center,
+strong,
+var,
+fieldset,
+form,
+label,
+dl,
+dt,
+dd,
+cite,
+input,
+hr,
+time,
+mark,
+code,
+figcaption,
+figure,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-style: normal;
+}
+
+html,
+body {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+    background-color: #fff;
+}
+
+nav,
+article,
+aside,
+details,
+main,
+header,
+footer,
+section,
+fieldset,
+figcaption,
+figure {
+    display: block;
+}
+
+img,
+a,
+button,
+em,
+del,
+strong,
+var,
+label,
+cite,
+small,
+time,
+mark,
+code,
+textarea {
+    display: inline-block;
+}
+
+header,
+section,
+footer {
+    position: relative;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+input,
+button,
+textarea {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    line-height: 1em;
+    -webkit-appearance: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+span {
+    display: inline-block;
+}
+
+a:active,
+a:hover {
+    outline: 0;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+}
+
+label,
+.wordWrap {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.word-nowrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: keep-all;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+td,
+th {
+    padding: 0;
+}
+
+.mui-switch {
+    width: 0.7593rem;
+    height: 0.44rem;
+    position: relative;
+    border: 1px solid #dfdfdf;
+    background-color: #fdfdfd;
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-clip: content-box;
+    display: inline-block;
+    -webkit-appearance: none;
+    user-select: none;
+    outline: none;
+}
+
+.mui-switch:before {
+    content: '';
+    width: 0.40rem;
+    height: 0.40rem;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    border-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.mui-switch:checked {
+    border-color: #42B694;
+    box-shadow: #42B694 0 0 0 16px inset;
+    background-color: #42B694;
+}
+
+.mui-switch:checked:before {
+    left: 0.33rem;
+}
+
+.mui-switch.mui-switch-animbg {
+    transition: background-color ease 0.4s;
+}
+
+.mui-switch.mui-switch-animbg:before {
+    transition: left 0.3s;
+}
+
+.mui-switch.mui-switch-animbg:checked {
+    box-shadow: #dfdfdf 0 0 0 0 inset;
+    background-color: #42B694;
+    transition: border-color 0.4s, background-color ease 0.4s;
+}
+
+.mui-switch.mui-switch-animbg:checked:before {
+    transition: left 0.3s;
+}
+
+.mui-switch.mui-switch-anim {
+    transition: border cubic-bezier(0, 0, 0, 1) 0.4s, box-shadow cubic-bezier(0, 0, 0, 1) 0.4s;
+}
+
+.mui-switch.mui-switch-anim:before {
+    transition: left 0.3s;
+}
+
+.mui-switch.mui-switch-anim:checked {
+    box-shadow: #42B694 0 0 0 16px inset;
+    background-color: #42B694;
+    transition: border ease 0.4s, box-shadow ease 0.4s, background-color ease 1.2s;
+}
+
+.mui-switch.mui-switch-anim:checked:before {
+    transition: left 0.3s;
+}
+
+select {
+    background: transparent;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.clearfix:after {
+    content: ' ';
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+input::-webkit-input-placeholder {
+    color: #acacac;
+}
+
+input:-moz-placeholder {
+    color: #acacac;
+}
+
+input::-moz-placeholder {
+    color: #acacac;
+}
+
+input:-ms-input-placeholder {
+    color: #acacac;
+}
+
+input[type=search]::-webkit-search-cancel-button{
+    -webkit-appearance: none; /* 去掉默认的小× */
+}
+
+header {
+    min-height: 1.2rem;
+    border-bottom: 1px solid #EDEDED;
+    line-height: 1.2rem;
+}
+
+#header .header-wrap {
+    position: relative;
+    min-height: inherit;
+    line-height: inherit;
+}
+#header .header-wrap .header-title {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    font-size: .32rem;
+    color: #717171;
+}
+#header .header-wrap .back-wrap {
+    position: absolute;
+    bottom: 0;
+    width: 1.1rem;
+    height: inherit;
+    min-height: inherit;
+    line-height: inherit;
+    background: url(../image/back.jpg) no-repeat .4rem center;
+    background-size: .5rem;
+}
+#header .header-wrap .show-search-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 1.2rem;
+    height: inherit;
+    min-height: inherit;
+    line-height: inherit;
+    background: url(../image/details_S.png) no-repeat center;
+    background-size: .4rem;
+}
+
+#header .header-wrap .right-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 0.4rem;
+    font-size: .32rem;
+    color: #42B694;
+}
+
+#header .search-wrap {
+    position: relative;
+    min-height: inherit;
+    line-height: inherit;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-box-pack:space-between;
+    -webkit-justify-content:space-between;
+            justify-content:space-between;
+
+    -webkit-box-align:center;
+    -webkit-align-items:center;
+          align-items:center;
+}
+#header .search-wrap .back-wrap {
+    position: static;
+    width: 1.1rem;
+    height: inherit;
+    min-height: inherit;
+    line-height: inherit;
+    background: url(../image/back.png) no-repeat .4rem center;
+    background-size: .29rem;
+}
+#header .search-wrap form {
+    position: static;
+    -webkit-box-flex:1;
+    -webkit-flex:1;
+            flex:1;
+    width: 100%;
+    height: .58rem;
+    line-height: .58rem;
+}
+#header .search-wrap input[type='search'] {
+    width: 100%;
+    height: 0.58rem;
+    line-height: normal;
+    border: 1px solid #717171;
+    border-radius: 0.09rem;
+    font-size: 0.3253rem;
+    color: #acacac;
+    text-align: center;
+}
+
+#header .search-wrap input.keywords2 {
+    padding-left: .6rem;
+    background: url(../image/Search_Icon-1.png) no-repeat .2rem center;
+    background-size: .3rem;
+    text-align: left;
+}
+
+#header .search-wrap .hide-search-btn {
+    padding: 0 .4rem;
+    height: inherit;
+    min-height: inherit;
+    line-height: inherit;
+    font-size: .32rem;
+}
+
+.home-container {
+    width: 100%;
+    margin: 0 auto;
+    font-size: 0;
+}
+
+.space-block {
+    height: .4rem;
+    background: #F0EFF5;
+    width: 100%;
+    border-bottom: 1px solid #EDEDED;
+    border-top: 1px solid #EDEDED;
+}
+
+.space-block-top {
+    height: .4rem;
+    background: #F0EFF5;
+    width: 100%;
+    border-bottom: 1px solid #EDEDED;
+}
+
+.row-space {
+    height: 0.4rem;
+    background: #F0EFF5;
+}
+
+.search-noresult {
+    display: none;
+    width: 100%;
+    padding-top: 60%;
+    font-size: 0.25rem;
+    color: #acacac;
+    text-align: center;
+}
+
+.default-btn {
+    display: block;
+    width: 100%;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    border: 1px solid #42B694;
+    border-radius: .1rem;
+    color: #42B694;
+    font-size: 0.32rem;
+    text-align: center;
+}
+.default-btn:active {
+    border: 1px solid #2f7560;
+    color: #2f7560;
+}
+
+.default-green-btn {
+    display: block;
+    width: 100%;
+    height: 0.96rem;
+    line-height: 0.96rem;
+    background: #42B694;
+    color: #fff;
+    font-size: 0.32rem;
+    text-align: center;
+}
+.default-green-btn:active {
+    background: #2f7560;
+}
+
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+    <!-- <script type="text/javascript" src="<%= htmlWebpackPlugin.files.js[0] %>"></script> -->
+</body>
+</html>

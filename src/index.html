@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>入口</title>
+</head>
+<body>
+</body>
+    <script>
+        apiready = function() {
+            // api.setStatusBarStyle({
+            //     style: 'light'
+            // });
+            // api.openFrame({
+            //     name: 'main',
+            //     //url: 'dist/html/index.html', //上传打包时使用
+            //     url: 'http://192.168.2.159:8002/page/main.html', //调试时使用
+            //     rect: {
+            //         x: 0,
+            //         y: 45,
+            //         w: 'auto',
+            //         h: 'auto'
+            //     },
+            //     bounces: false,
+            //     vScrollBarEnabled: true,
+            //     hScrollBarEnabled: true
+            // });
+            api.openFrame({
+                name: 'main',
+                url: 'http://192.168.2.159:8002/page/login.html',
+                pageParam: null,
+                allowEdit: false,
+                slidBackEnabled: null,
+                reload: false,
+                animation: null,
+                bounces: false
+            });
+        };
+    </script>
+</html>
